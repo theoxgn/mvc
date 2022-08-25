@@ -1,13 +1,13 @@
-<?php 
- 
+<?php
+
 class database{
- 
+
 	var $host = "localhost";
 	var $uname = "root";
 	var $pass = "";
 	var $db = "test";
 
- 
+
 	public function __construct(){
 		$con = new mysqli($this->host, $this->uname, $this->pass, $this->db);
 		mysqli_select_db($con,$this->db);
@@ -23,21 +23,30 @@ class database{
 		return $hasil;
 	}
 
-	function tambah_pegawai($id_peg,$nama,$alamat,$hp){
-		$con = new mysqli($this->host, $this->uname, $this->pass, $this->db);
-		mysqli_select_db($con,$this->db);
-		mysqli_query($con, "INSERT INTO PEGAWAI VALUES('$id_peg','$nama','$alamat','$hp')");
-	}
+  function tambah_pegawai($id_peg, $nama, $alamat, $hp)
+  {
+    $con = new mysqli($this->host, $this->uname, $this->pass, $this->db);
+    mysqli_select_db($con, $this->db);
+    mysqli_query($con, "INSERT INTO PEGAWAI VALUES('$id_peg','$nama','$alamat','$hp')");
+  }
+  
+  function get_pegawai_by_id($id_peg)
+  {
+    $con = new mysqli($this->host, $this->uname, $this->pass, $this->db);
+    mysqli_select_db($con, $this->db);
+    $data = mysqli_query($con, "SELECT * FROM pegawai WHERE id_peg='$id_peg'");
+    while ($d = mysqli_fetch_array($data)) {
+      $hasil[] = $d;
+    }
+    return $hasil;
+  }
 
-	function update_pegawai($id_peg){
-		$con = new mysqli($this->host, $this->uname, $this->pass, $this->db);
-		mysqli_select_db($con,$this->db);
-		$data = mysqli_query($con, "SELECT * FROM pegawai WHERE id_peg='$id_peg'");
-		while($d = mysqli_fetch_array($data)){
-			$hasil[] = $d;
-		}
-		return $hasil;
-	}
+  function update_pegawai($id_peg, $nama, $alamat, $hp)
+  {
+    $con = new mysqli($this->host, $this->uname, $this->pass, $this->db);
+    mysqli_select_db($con, $this->db);
+    mysqli_query($con, "UPDATE pegawai SET nama='$nama', alamat='$alamat', no_hp='$hp' WHERE id_peg='$id_peg'");
+  }
 
 	function hapus_pegawai($id_peg){
 		// $id = $_GET['id'];// kan dh di function(idpeg) buat nampung data id disini..

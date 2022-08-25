@@ -23,8 +23,8 @@ foreach ($db->tampil_data() as $key) {//error disini
         <th><?php echo $key['nama'];?></th>
         <th><?php echo $key['alamat'];?></th>
         <th><?php echo $key['no_hp'];?></th>
-        <th> 
-            <a href="edit.php?id=<?php echo $key['id_peg'];?>&aksi=edit">Edit data</a>
+        <th>
+            <a href="edit.php?id=<?php echo $key['id_peg'];?>">Edit data</a>
             <a href="aksi.php?id=<?php echo $key['id_peg'];?>&aksi=hapus">Hapus data</a>
         <th>
 </tr>
