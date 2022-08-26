@@ -48,10 +48,10 @@ class database{
     mysqli_query($con, "UPDATE pegawai SET nama='$nama', alamat='$alamat', no_hp='$hp' WHERE id_peg='$id_peg'");
   }
 
-	function hapus_pegawai($id_peg){
+	function hapus_pegawai($id){
 		$con = new mysqli($this->host, $this->uname, $this->pass, $this->db);
 		mysqli_select_db($con,$this->db);
-		mysqli_query($con, "DELETE FROM pegawai WHERE id_peg='$id_peg'");
+		mysqli_query($con, "DELETE FROM pegawai WHERE id_peg='$id'");
 	}
 }
 ?>

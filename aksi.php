@@ -10,7 +10,9 @@ if ($aksi == "tambah") {
   $db->update_pegawai($_POST['id_peg'], $_POST['nama'], $_POST['alamat'], $_POST['hp']);
   header("location:index.php");
 } elseif ($aksi == "hapus") {
-  $db->hapus_pegawai($_GET['id_peg']);
+  // if ($_GET['id_peg'] != 0) {
+  $db->hapus_pegawai($_GET['id']);
   header("location:index.php");
+  // }
 
 }
