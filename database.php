@@ -29,7 +29,7 @@ class database{
     mysqli_select_db($con, $this->db);
     mysqli_query($con, "INSERT INTO PEGAWAI VALUES('$id_peg','$nama','$alamat','$hp')");
   }
-  
+
   function get_pegawai_by_id($id_peg)
   {
     $con = new mysqli($this->host, $this->uname, $this->pass, $this->db);
@@ -49,11 +49,9 @@ class database{
   }
 
 	function hapus_pegawai($id_peg){
-		// $id = $_GET['id'];// kan dh di function(idpeg) buat nampung data id disini..
-		// $prosesHapus = mysqli_query("DELETE FROM PEGAWAI WHERE $id_peg= $id");
 		$con = new mysqli($this->host, $this->uname, $this->pass, $this->db);
 		mysqli_select_db($con,$this->db);
-		mysqli_query($con, "DELETE FROM PEGAWAI WHERE $id_peg= $id_peg");
+		mysqli_query($con, "DELETE FROM pegawai WHERE id_peg='$id_peg'");
 	}
 }
 ?>
