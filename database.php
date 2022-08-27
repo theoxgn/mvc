@@ -27,7 +27,7 @@ class database{
   {
     $con = new mysqli($this->host, $this->uname, $this->pass, $this->db);
     mysqli_select_db($con, $this->db);
-    mysqli_query($con, "INSERT INTO PEGAWAI VALUES('$id_peg','$nama','$alamat','$hp')");
+    mysqli_query($con, "INSERT INTO PEGAWAI (nama,alamat,no_hp) VALUES('$id_peg','$nama','$alamat','$hp')");
   }
 
   function get_pegawai_by_id($id_peg)
