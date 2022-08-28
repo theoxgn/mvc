@@ -26,6 +26,19 @@ foreach($db->get_pegawai_by_id($_GET['id']) as $d){
 		<td>Hp</td>
 		<td><input type="text" name="hp" value="<?php echo $d['no_hp'] ?>"></td>
 	</tr>
+	<?php
+        $no = 1;
+        foreach ($db->get_jabatan_by_id() as $key) { //error disini
+        ?>
+            <tr>
+                <td> Jabatan
+                <td>
+                    <select id="id_jabatan" name="id_jabatan">
+                        <option value="<?php echo $key['id_jabatan']; ?>"><?php echo $key['nama_jabatan']; ?></option>
+                    </select>
+                </td>
+            </tr>
+        <?php } ?>
 	<tr>
 		<td></td>
 		<td><input type="submit" value="Simpan"></td>
